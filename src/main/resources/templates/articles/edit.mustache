@@ -1,0 +1,12 @@
+{{>layouts/header}}
+{{#article}}
+    <form class = "container" form action="/articles/{{id}}/update" method = "post">
+        <input type = "hidden" name ="id" value="{{id}}"/>
+        <input type = "text" name ="title" value="{{title}}"/>
+        <br>
+        <br>
+        <textarea rows = "11" name = "contents" value = "{{contents}}">{{contents}}</textarea>
+        <button class="btn btn-primary" type="submit">수정</button>
+    </form>
+    <a href="/articles"> 목록 </a>
+{{/article}}

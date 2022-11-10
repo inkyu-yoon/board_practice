@@ -1,0 +1,48 @@
+{{>layouts/header}}
+<div>
+    <body>
+
+    <form class="container">
+        {{#article}}
+
+            <ul class="list-group">
+                <li class="list-group-item active" aria-current="true">{{id}}. {{title}}</li>
+                <li class="list-group-item">  {{contents}}</li>
+                <br>
+
+            </ul>
+
+        {{/article}}
+    </form>
+
+    <form class="container" form action="/articles/{{id}}/edit" method="get">
+
+        <br>
+        <div class="d-grid gap-2 col-6 mx-auto">
+            <button class="btn btn-primary" type="submit">게시글 수정</button>
+        </div>
+    </form>
+
+    <form class="container" form action="/articles/list" method="get">
+
+
+        <br>
+
+        <div class="d-grid gap-2 col-6 mx-auto">
+            <button class="btn btn-primary" type="submit">게시글 전체 조회</button>
+        </div>
+    </form>
+
+    <form class="container" form action="/articles/{{id}}/delete" method="get">
+
+        <br>
+        <div class="d-grid gap-2 col-6 mx-auto">
+            <button class="btn btn-primary" type="submit">게시글 삭제</button>
+        </div>
+    </form>
+
+    </body>
+</div>
+{{>layouts/footer}}
+
+
