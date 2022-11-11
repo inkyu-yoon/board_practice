@@ -8,6 +8,7 @@ import java.time.LocalDateTime;
 @Entity
 @Getter
 @ToString
+@Setter
 @Table(name = "hospital")
 @NoArgsConstructor
 @AllArgsConstructor
