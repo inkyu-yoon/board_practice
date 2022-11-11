@@ -13,7 +13,8 @@
             <tr>
                 <th scope="row">{{id}}</th>
                 <td><a href="/hospital/{{id}}/find">{{hospitalName}}</a></td>
-                <td>{{roadNameAddress}}</td>
+                <td><a href="https://map.naver.com/v5/search/{{fullAddress}}" target="_blank">{{fullAddress}}</a></td>
+
             </tr>
         {{/hospitals}}
         </tbody>

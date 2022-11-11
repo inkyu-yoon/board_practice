@@ -1,9 +1,13 @@
 {{>layouts/header}}
 <div>
-    인포 페이지
 
     <form class="container">
         {{#hospital}}
+            <div align="center">
+                <h1><mark>{{hospitalName}}</mark> 상세 정보</h1>
+            </div>
+            <br>
+            <br>
             <ul class="list-group">
                 <li class="list-group-item">ID : {{id}}</li>
                 <li class="list-group-item">개방 서비스 명 : {{openServiceName}}</li>
