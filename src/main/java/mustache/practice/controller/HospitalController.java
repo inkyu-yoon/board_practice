@@ -4,6 +4,8 @@ import lombok.extern.slf4j.Slf4j;
 import mustache.practice.domain.entity.Hospital;
 import mustache.practice.repository.HospitalRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -33,5 +35,13 @@ public class HospitalController {
         }
     }
 
-
+    @GetMapping("")
+    public String list(Model model, Pageable pageable) {
+        Page<Hospital> hospitals = hospitalRepository.findAll(pageable);
+        log.info("size:{}", hospitals.getSize());
+        model.addAttribute("hospitals", hospitals);
+        model.addAttribute("previous", pageable.previousOrFirst().getPageNumber());
+        model.addAttribute("next", pageable.next().getPageNumber());
+        return "hospital/list";
+    }
 }
