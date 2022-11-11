@@ -2,11 +2,22 @@
 {{#article}}
     <form class = "container" form action="/articles/{{id}}/update" method = "post">
         <input type = "hidden" name ="id" value="{{id}}"/>
-        <input type = "text" name ="title" value="{{title}}"/>
-        <br>
-        <br>
-        <textarea rows = "11" name = "contents" value = "{{contents}}">{{contents}}</textarea>
-        <button class="btn btn-primary" type="submit">수정</button>
+        <div class="mb-3">
+            <label  class="form-label">게시글 제목</label>
+            <input type="text" name = "title" class="form-control" value = {{title}} placeholder="제목">
+        </div>
+
+        <div class="mb-3">
+            <label  class="form-label">게시글 내용</label>
+            <textarea class="form-control"  rows="10" name= "contents" placeholder="내용" >{{contents}}</textarea>
+
+        </div>
+
+        <div class="d-grid gap-2 col-6 mx-auto">
+            <button class="btn btn-primary" type="submit">수정</button>
+        </div>
+
     </form>
     <a href="/articles"> 목록 </a>
 {{/article}}
+
