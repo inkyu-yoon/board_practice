@@ -17,19 +17,19 @@ public class Article {
     private Long id;
 
     private String title;
-    private String contents;
+    private String content;
 
     @Override
     public String toString() {
         return "Article{" +
                 "id=" + id +
                 ", title='" + title + '\'' +
-                ", contents='" + contents + '\'' +
+                ", contents='" + content + '\'' +
                 '}';
     }
 
-    public Article(String title, String contents) {
+    public Article(String title, String content) {
         this.title = title;
-        this.contents = contents;
+        this.content = content;
     }
 }

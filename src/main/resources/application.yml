@@ -7,7 +7,7 @@ spring:
     driver-class-name: com.mysql.cj.jdbc.Driver
     url: jdbc:mysql://localhost:8080/inkyu-db
     username: root
-    password: 1q2w3e4r
+    password: 12341234
 
   jpa:
     show-sql: true

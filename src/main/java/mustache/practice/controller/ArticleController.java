@@ -69,7 +69,7 @@ public class ArticleController {
 
     @PostMapping("/{id}/update")
     public String update(@PathVariable(name = "id") Long id, ArticleDto articleDto,Model model) {
-        log.info("{} {} ", articleDto.getTitle(), articleDto.getContents());
+        log.info("{} {} ", articleDto.getTitle(), articleDto.getContent());
         Article article = articleRepository.save(articleDto.toEntity());
         model.addAttribute("article", article);
         return "redirect:/articles/"+article.getId();
@@ -79,7 +79,7 @@ public class ArticleController {
 
     @PostMapping("")
     public String add(ArticleDto articleDto) {
-        log.info("{} {} ", articleDto.getTitle(), articleDto.getContents());
+        log.info("{} {} ", articleDto.getTitle(), articleDto.getContent());
         Article savedArticle = articleRepository.save((articleDto.toEntity()));
         log.info("generatedId:{}", savedArticle.getId());
         return "redirect:/articles/" + savedArticle.getId();

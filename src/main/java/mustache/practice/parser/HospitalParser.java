@@ -28,8 +28,8 @@ public class HospitalParser implements Parser<Hospital> {
         hospital.setBusinessStatus(Integer.parseInt(row[7]));
         hospital.setBusinessStatusCode(Integer.parseInt(row[9]));
         hospital.setPhone(row[15]);
-        hospital.setFullAddress(row[18]);
-        hospital.setRoadNameAddress(row[19]);
+        hospital.setFullAddress(row[18].replaceAll("\"",""));
+        hospital.setRoadNameAddress(row[19].replaceAll("\"",""));
         hospital.setHospitalName(row[21]);
         hospital.setBusinessTypeName(row[25]);
 

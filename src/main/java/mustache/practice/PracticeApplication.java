@@ -9,8 +9,9 @@ public class PracticeApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(PracticeApplication.class, args);
-		HospitalService hospitalService = new HospitalService("hospital");
-		hospitalService.insertLargeVolumeHospitalData("hospitalData.txt");
+		//데이터 입력
+//		HospitalService hospitalService = new HospitalService("hospital");
+//		hospitalService.insertLargeVolumeHospitalData("hospitalData.txt");
 	}
 
 }
