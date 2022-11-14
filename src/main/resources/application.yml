@@ -5,7 +5,7 @@ server:
 spring:
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://localhost:8080/inkyu-db
+    url: jdbc:mysql://localhost:3306/inkyu-db
     username: root
     password: 12341234
 
