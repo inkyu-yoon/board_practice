@@ -20,10 +20,11 @@ class HospitalRepositoryTest {
     @DisplayName("리스트 메서드 테스트")
     void test1(){
         List<String> list = new ArrayList<>();
+        String address = "수원시";
         list.add("보건소");
         list.add("보건지소");
         list.add("보건진료소");
-        List<Hospital> byBusinessTypeName = hospitalRepository.findByBusinessTypeNameIn(list);
+        List<Hospital> byBusinessTypeName = hospitalRepository.findByRoadNameAddressContainingAndBusinessTypeNameIn(address,list);
         for (Hospital hospital : byBusinessTypeName) {
             System.out.println(hospital.getHospitalName());
         }

@@ -11,5 +11,6 @@ public interface HospitalRepository extends JpaRepository<Hospital, Long> {
 
     List<Hospital> findByBusinessTypeNameIn(List<String> businessTypes);
 
+    List<Hospital> findByRoadNameAddressContainingAndBusinessTypeNameIn(String address, List<String> businessTypes);
 
 }
