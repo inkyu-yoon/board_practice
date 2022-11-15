@@ -1,6 +1,7 @@
 package mustache.practice.domain.entity;
 
 import lombok.*;
+import mustache.practice.domain.dto.HospitalResponse;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
@@ -78,4 +79,12 @@ public class Hospital {
 
     @Column(name = "total_area_size")
     private float totalAreaSize;
+
+    // HospitalEntity를 HospitalResponse Dto로 만들어주는 부분
+    public static HospitalResponse of(Hospital hospital) {
+        return new HospitalResponse(hospital.getId(),
+                hospital.getRoadNameAddress(), hospital.getHospitalName(),
+                hospital.getPatientRoomCount(), hospital.getTotalNumberOfBeds(), hospital.getBusinessTypeName(),
+                hospital.getTotalAreaSize());
+    }
 }
