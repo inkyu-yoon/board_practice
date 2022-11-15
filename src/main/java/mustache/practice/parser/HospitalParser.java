@@ -36,7 +36,7 @@ public class HospitalParser implements Parser<Hospital> {
         hospital.setHealthcareProviderCount(0);
         hospital.setPatientRoomCount(0);
         hospital.setTotalNumberOfBeds(0);
-        hospital.setTotalAreaSize(0);
+        hospital.setTotalAreaSize(Float.valueOf(0));
         if (row.length >= 29) {
             if (!row[29].equals(""))
                 hospital.setHealthcareProviderCount(Integer.parseInt(row[29]));

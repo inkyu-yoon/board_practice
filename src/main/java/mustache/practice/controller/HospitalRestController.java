@@ -3,6 +3,7 @@ package mustache.practice.controller;
 import mustache.practice.domain.dto.HospitalResponse;
 import mustache.practice.domain.entity.Hospital;
 import mustache.practice.repository.HospitalRepository;
+import mustache.practice.service.HospitalService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -14,16 +15,15 @@ import java.util.Optional;
 @RestController
 @RequestMapping("/api/v1/hospitals")
 public class HospitalRestController {
-    private final HospitalRepository hospitalRepository;
+    private final HospitalService hospitalService;
 
-    public HospitalRestController(HospitalRepository hospitalRepository) {
-        this.hospitalRepository = hospitalRepository;
+    public HospitalRestController(HospitalService hospitalService) {
+        this.hospitalService = hospitalService;
     }
 
     @GetMapping("/{id}")
     public ResponseEntity<HospitalResponse> get(@PathVariable(name = "id") Long id) {
-        Optional<Hospital> hospital = hospitalRepository.findById(id);
-        HospitalResponse hospitalResponse = Hospital.of(hospital.get());
+        HospitalResponse hospitalResponse = hospitalService.getHospital(id);
         return ResponseEntity.ok().body(hospitalResponse);
     }
 

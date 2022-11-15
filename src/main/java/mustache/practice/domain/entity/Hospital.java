@@ -40,7 +40,7 @@ public class Hospital {
     private String openServiceName;
 
     @Column(name = "open_local_government_code")
-    private int openLocalGovernmentCode;
+    private Integer openLocalGovernmentCode;
 
     @Column(name = "management_number")
     private String managementNumber;
@@ -49,10 +49,10 @@ public class Hospital {
     private LocalDateTime licenseDate;
 
     @Column(name = "business_status")
-    private int businessStatus;
+    private Integer businessStatus;
 
     @Column(name = "business_status_code")
-    private int businessStatusCode;
+    private Integer businessStatusCode;
 
     private String phone;
 
@@ -69,16 +69,16 @@ public class Hospital {
     private String businessTypeName;
 
     @Column(name = "healthcare_provider_count")
-    private int healthcareProviderCount;
+    private Integer healthcareProviderCount;
 
     @Column(name = "patient_room_count")
-    private int patientRoomCount;
+    private Integer patientRoomCount;
 
     @Column(name = "total_number_of_beds")
-    private int totalNumberOfBeds;
+    private Integer totalNumberOfBeds;
 
     @Column(name = "total_area_size")
-    private float totalAreaSize;
+    private Float totalAreaSize;
 
     // HospitalEntity를 HospitalResponse Dto로 만들어주는 부분
     public static HospitalResponse of(Hospital hospital) {

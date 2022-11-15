@@ -2,10 +2,13 @@ package mustache.practice.service;
 
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
+import mustache.practice.domain.dto.HospitalResponse;
 import mustache.practice.domain.entity.Hospital;
 import mustache.practice.parser.HospitalParser;
 import mustache.practice.parser.Parser;
 import mustache.practice.parser.ReadLine;
+import mustache.practice.repository.HospitalRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.persistence.EntityManager;
@@ -19,16 +22,34 @@ import java.util.Optional;
 
 @Service
 @AllArgsConstructor
-@NoArgsConstructor
-public class HospitalService{
-    EntityManagerFactory emf ;
-    EntityManager em;
-    EntityTransaction ts;
 
-    public HospitalService(String unitName) {
-        this.emf = Persistence.createEntityManagerFactory(unitName);
+public class HospitalService{
+    private final HospitalRepository hospitalRepository;
+    private EntityManagerFactory emf = Persistence.createEntityManagerFactory("hospital");
+    private EntityManager em;
+    private EntityTransaction ts;
+
+
+@Autowired
+    public HospitalService(HospitalRepository hospitalRepository) {
         this.em = this.emf.createEntityManager();
         this.ts = this.em.getTransaction();
+        this.hospitalRepository = hospitalRepository;
+
+    }
+
+    public HospitalResponse getHospital(Long id) {
+        Optional<Hospital> optHospital = hospitalRepository.findById(id); // Entity
+        Hospital hospital = optHospital.get();
+        HospitalResponse hospitalResponse = Hospital.of(hospital); // DTO
+        if (hospital.getBusinessStatusCode() == 13) {
+            hospitalResponse.setBusinessStatusName("영업중");
+        } else if (hospital.getBusinessStatusCode() == 3) {
+            hospitalResponse.setBusinessStatusName("폐업");
+        } else {
+            hospitalResponse.setBusinessStatusName(String.valueOf(hospital.getBusinessStatusCode()));
+        }
+        return hospitalResponse;
     }
 
     @Transactional

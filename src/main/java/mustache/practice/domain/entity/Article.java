@@ -19,14 +19,6 @@ public class Article {
     private String title;
     private String content;
 
-    @Override
-    public String toString() {
-        return "Article{" +
-                "id=" + id +
-                ", title='" + title + '\'' +
-                ", contents='" + content + '\'' +
-                '}';
-    }
 
     public Article(String title, String content) {
         this.title = title;

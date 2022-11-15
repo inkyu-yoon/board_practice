@@ -6,7 +6,6 @@ import lombok.NoArgsConstructor;
 
 @Getter
 @NoArgsConstructor
-@AllArgsConstructor
 public class HospitalResponse {
     private Long id;
     private String roadNameAddress;
@@ -15,4 +14,21 @@ public class HospitalResponse {
     private Integer totalNumberOfBeds;
     private String businessTypeName;
     private Float totalAreaSize;
+
+    public HospitalResponse(Long id, String roadNameAddress, String hospitalName, Integer patientRoomCount, Integer totalNumberOfBeds, String businessTypeName, Float totalAreaSize) {
+        this.id = id;
+        this.roadNameAddress = roadNameAddress;
+        this.hospitalName = hospitalName;
+        this.patientRoomCount = patientRoomCount;
+        this.totalNumberOfBeds = totalNumberOfBeds;
+        this.businessTypeName = businessTypeName;
+        this.totalAreaSize = totalAreaSize;
+    }
+
+    private String businessStatusName;
+
+    public void setBusinessStatusName(String businessStatusName) {
+        this.businessStatusName = businessStatusName;
+    }
+
 }
