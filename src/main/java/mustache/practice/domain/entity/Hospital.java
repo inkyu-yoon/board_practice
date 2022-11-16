@@ -10,7 +10,7 @@ import java.time.LocalDateTime;
 @Getter
 @ToString
 @Setter
-@Table(name = "hospital")
+@Table(name = "hospital2")
 @NoArgsConstructor
 @AllArgsConstructor
 public class Hospital {

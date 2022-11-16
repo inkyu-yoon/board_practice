@@ -12,6 +12,12 @@
 
             </ul>
 
+            <hr>
+
+            {{#comments}}
+                <li class="list-group-item"> 작성자 : {{user}} || 내용 :  {{content}}</li>
+            {{/comments}}
+
         {{/article}}
     </form>
 

@@ -3,6 +3,9 @@ package mustache.practice.domain;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import mustache.practice.domain.entity.Article;
+import mustache.practice.domain.entity.Comment;
+
+import java.util.List;
 
 @Getter
 @AllArgsConstructor
@@ -12,6 +15,7 @@ public class ArticleDto {
     private String title;
     private String content;
 
+    private List<Comment> comments;
 
 
     @Override
@@ -23,6 +27,6 @@ public class ArticleDto {
     }
 
     public Article toEntity(){
-        return new Article(this.id,this.title,this.content);
+        return new Article(this.id,this.title,this.content,this.comments);
     }
 }

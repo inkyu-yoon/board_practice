@@ -6,6 +6,8 @@ import lombok.NoArgsConstructor;
 import mustache.practice.domain.dto.ArticleResponse;
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Getter
 @Table(name = "article")
@@ -20,6 +22,8 @@ public class Article {
     private String title;
     private String content;
 
+    @OneToMany(mappedBy = "article",cascade = CascadeType.ALL)
+    private List<Comment> comments = new ArrayList<>();
 
     public Article(String title, String content) {
         this.title = title;
