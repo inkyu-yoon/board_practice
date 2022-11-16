@@ -37,6 +37,7 @@ public class HospitalParser implements Parser<Hospital> {
         hospital.setPatientRoomCount(0);
         hospital.setTotalNumberOfBeds(0);
         hospital.setTotalAreaSize(Float.valueOf(0));
+        hospital.setMedicalDepartment(null);
         if (row.length >= 29) {
             if (!row[29].equals(""))
                 hospital.setHealthcareProviderCount(Integer.parseInt(row[29]));
@@ -52,6 +53,11 @@ public class HospitalParser implements Parser<Hospital> {
         if (row.length >= 32) {
             if (!row[32].equals(""))
                 hospital.setTotalAreaSize(Float.parseFloat(row[32]));
+        }
+        if(row.length >= 34){
+            if (!row[34].equals("")) {
+                hospital.setMedicalDepartment(row[34].replaceAll("\"",""));
+            }
         }
         return hospital;
 

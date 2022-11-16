@@ -16,7 +16,7 @@ import java.util.Optional;
 
 @Controller
 @Slf4j
-@RequestMapping("/hospital")
+@RequestMapping("/hospitals")
 public class HospitalController {
 
     @Autowired

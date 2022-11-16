@@ -27,10 +27,11 @@ public class HospitalDto {
     private int totalNumberOfBeds;
     private float totalAreaSize;
 
+    private String medicalDepartment;
     public Hospital toEntity(){
         return new Hospital(this.id, this.openServiceName, this.openLocalGovernmentCode
                 , this.managementNumber, this.licenseDate, this.businessStatus, this.businessStatusCode
                 , this.phone, this.fullAddress, this.roadNameAddress, this.hospitalName, this.businessTypeName, this.healthcareProviderCount
-                , this.patientRoomCount, this.totalNumberOfBeds, this.totalAreaSize);
+                , this.patientRoomCount, this.totalNumberOfBeds, this.totalAreaSize,this.medicalDepartment);
     }
 }

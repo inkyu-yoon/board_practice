@@ -1,5 +1,7 @@
 package mustache.practice.parser;
 
+import mustache.practice.domain.entity.Hospital;
+
 import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -32,6 +34,24 @@ public class ReadLine <T> {
         }
         br.close();
         return result;
+    }
+
+    public Hospital readOneLine(String filename) throws IOException {
+        BufferedReader br = new BufferedReader(new InputStreamReader(new FileInputStream(filename),"utf-8"));
+
+        if (isColumn) {
+            br.readLine();
+        }
+        String str = br.readLine();
+        Hospital h = null;
+            try {
+                h = (Hospital) parser.parse(str);
+            } catch (Exception e) {
+                System.out.println(br.readLine());
+                System.out.printf("파싱중 문제가 생겨 이 라인은 넘어갑니다. 파일내용:%s\n", str.substring(0, 20));
+        }
+        br.close();
+        return h;
     }
 
 }
