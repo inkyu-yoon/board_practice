@@ -22,8 +22,13 @@
                 </li>
 
             </ul>
-            <form class="d-flex" role="search">
-                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+            <form class="d-flex" action="/hospitals" method="get">
+                {{#keyword}}
+                    <input type="text" class="form-control" name="keyword" value="{{keyword}}" placeholder="지역검색">
+                {{/keyword}}
+                {{^keyword}}
+                    <input type="text" class="form-control" name="keyword" placeholder="지역검색">
+                {{/keyword}}
                 <button class="btn btn-outline-success" type="submit">Search</button>
             </form>
         </div>
