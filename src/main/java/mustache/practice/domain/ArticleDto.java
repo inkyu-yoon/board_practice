@@ -27,6 +27,10 @@ public class ArticleDto {
     }
 
     public Article toEntity(){
-        return new Article(this.id,this.title,this.content,this.comments);
+        Article article = Article.builder()
+                .title(this.title)
+                .content(this.content)
+                .build();
+        return article;
     }
 }

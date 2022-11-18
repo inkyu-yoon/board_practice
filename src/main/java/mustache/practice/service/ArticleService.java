@@ -1,5 +1,6 @@
 package mustache.practice.service;
 
+import mustache.practice.domain.dto.ArticleAddRequest;
 import mustache.practice.domain.dto.ArticleResponse;
 import mustache.practice.domain.entity.Article;
 import mustache.practice.repository.ArticleRepository;
@@ -15,6 +16,12 @@ public class ArticleService {
     @Autowired
     public ArticleService(ArticleRepository articleRepository) {
         this.articleRepository = articleRepository;
+    }
+
+    public ArticleResponse addArticle(ArticleAddRequest articleAddRequest) {
+        Article save = articleRepository.save(articleAddRequest.toEntity());
+
+        return Article.of(save);
     }
 
     public ArticleResponse getArticle(Long id) {
