@@ -14,6 +14,7 @@
         </div>
     </form>
 </form>
+
 <form class="container">
     <table class="table table-hover">
         <thead>
@@ -38,8 +39,14 @@
         </tbody>
     </table>
     <ul class="pagination justify-content-center">
-        <li class="page-item"><a class="page-link" href="?page={{previous}}">Previous</a></li>
-        <li class="page-item"><a class="page-link" href="?page={{next}}">Next</a></li>
+        {{#keyword}}
+            <li class="page-item"><a class="page-link" href="?keyword={{keyword}}&page={{previous}}">Previous</a></li>
+            <li class="page-item"><a class="page-link" href="?keyword={{keyword}}&page={{next}}">Next</a></li>
+        {{/keyword}}
+        {{^keyword}}
+            <li class="page-item"><a class="page-link" href="?page={{previous}}">Previous</a></li>
+            <li class="page-item"><a class="page-link" href="?page={{next}}">Next</a></li>
+        {{/keyword}}
     </ul>
 </form>
 {{>layouts/footer}}
