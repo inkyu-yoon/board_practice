@@ -22,7 +22,6 @@ import java.util.Optional;
 
 @Service
 @AllArgsConstructor
-
 public class HospitalService{
     private final HospitalRepository hospitalRepository;
     private EntityManagerFactory emf = Persistence.createEntityManagerFactory("hospital");

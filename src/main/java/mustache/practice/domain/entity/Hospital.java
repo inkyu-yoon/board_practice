@@ -5,6 +5,7 @@ import mustache.practice.domain.dto.HospitalResponse;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
+import java.util.List;
 
 @Entity
 @Getter
@@ -18,6 +19,7 @@ public class Hospital {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "hospital_id")
     private Long id;
 
     @Column(name = "open_service_name")
@@ -66,6 +68,9 @@ public class Hospital {
 
     @Column(name = "medical_department",length = 350)
     private String medicalDepartment;
+
+    @OneToMany(mappedBy = "hospital")
+    private List<Review> reviews;
 
     // HospitalEntity를 HospitalResponse Dto로 만들어주는 부분
     public static HospitalResponse of(Hospital hospital) {

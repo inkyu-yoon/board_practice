@@ -7,8 +7,7 @@ import lombok.NoArgsConstructor;
 import mustache.practice.domain.dto.ArticleResponse;
 
 import javax.persistence.*;
-import java.util.ArrayList;
-import java.util.List;
+
 
 @Getter
 @Table(name = "article")
@@ -19,13 +18,11 @@ import java.util.List;
 public class Article {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "article_id")
     private Long id;
 
     private String title;
     private String content;
-
-    @OneToMany(mappedBy = "article",cascade = CascadeType.ALL)
-    private List<Comment> comments = new ArrayList<>();
 
     public Article(String title, String content) {
         this.title = title;
