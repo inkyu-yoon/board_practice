@@ -1,5 +1,6 @@
 package mustache.practice.controller;
 
+import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import mustache.practice.domain.ArticleDto;
 import mustache.practice.domain.entity.Article;
@@ -15,10 +16,11 @@ import java.util.Optional;
 @Controller
 @Slf4j
 @RequestMapping("/articles")
+@RequiredArgsConstructor
 public class ArticleController {
 
     @Autowired
-    private ArticleRepository articleRepository;
+    private final ArticleRepository articleRepository;
 
     @GetMapping(value = "/new")
     public String createPage() {

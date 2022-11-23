@@ -1,5 +1,6 @@
 package mustache.practice.controller;
 
+import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import mustache.practice.domain.ArticleDto;
 import mustache.practice.domain.dto.ReviewDto;
@@ -15,16 +16,16 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 @RequestMapping("/review")
 @Slf4j
+@RequiredArgsConstructor
 public class ReviewController {
-    @Autowired
-    private ReviewRepository reviewRepository;
 
+    private final ReviewRepository reviewRepository;
 
     @PostMapping("")
     public String add(ReviewDto reviewDto) {
         log.info("{} {} {} ",reviewDto.getPatientName(), reviewDto.getTitle(), reviewDto.getContent());
-        Review savedReview = reviewRepository.save((reviewDto.toEntity()));
-        log.info("generatedId:{}", savedReview.getId());
+       reviewRepository.save((reviewDto.toEntity()));
+
         return "redirect:/hospitals" ;
     }
 }

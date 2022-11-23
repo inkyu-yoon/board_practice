@@ -3,13 +3,17 @@ package mustache.practice.service;
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
 import lombok.RequiredArgsConstructor;
+import mustache.practice.domain.dto.BookResponseDto;
 import mustache.practice.domain.dto.HospitalResponse;
+import mustache.practice.domain.entity.Book;
 import mustache.practice.domain.entity.Hospital;
 import mustache.practice.parser.HospitalParser;
 import mustache.practice.parser.Parser;
 import mustache.practice.parser.ReadLine;
 import mustache.practice.repository.HospitalRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import javax.persistence.EntityManager;
@@ -20,6 +24,7 @@ import javax.transaction.Transactional;
 import java.io.IOException;
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 @Service
 @AllArgsConstructor
@@ -50,6 +55,15 @@ public class HospitalService{
             hospitalResponse.setBusinessStatusName(String.valueOf(hospital.getBusinessStatusCode()));
         }
         return hospitalResponse;
+    }
+
+    public List<HospitalResponse> findHospitals(Pageable pageable) {
+        Page<Hospital> hospitals = hospitalRepository.findAll(pageable);
+        List<HospitalResponse> hospitalResponses = hospitals.stream()
+                .map(hospital ->
+                        HospitalResponse.of(hospital)
+                ).collect(Collectors.toList());
+        return hospitalResponses;
     }
 
     @Transactional

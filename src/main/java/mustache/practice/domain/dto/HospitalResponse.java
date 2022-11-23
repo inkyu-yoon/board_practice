@@ -4,6 +4,7 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import mustache.practice.domain.entity.Hospital;
 
 @Getter
 @NoArgsConstructor
@@ -29,6 +30,13 @@ public class HospitalResponse {
     }
 
     private String businessStatusName;
+
+    public static HospitalResponse of(Hospital hospital) {
+        return HospitalResponse.builder().id(hospital.getId())
+                .roadNameAddress(hospital.getRoadNameAddress()).hospitalName(hospital.getHospitalName())
+                .patientRoomCount(hospital.getPatientRoomCount()).totalNumberOfBeds(hospital.getTotalNumberOfBeds())
+                .businessTypeName(hospital.getBusinessTypeName()).totalAreaSize(hospital.getTotalAreaSize()).build();
+    }
 
     public void setBusinessStatusName(String businessStatusName) {
         this.businessStatusName = businessStatusName;

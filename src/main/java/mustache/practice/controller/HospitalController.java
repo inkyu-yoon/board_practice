@@ -1,5 +1,6 @@
 package mustache.practice.controller;
 
+import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import mustache.practice.domain.entity.Hospital;
 import mustache.practice.repository.HospitalRepository;
@@ -18,10 +19,10 @@ import java.util.Optional;
 @Controller
 @Slf4j
 @RequestMapping("/hospitals")
+@RequiredArgsConstructor
 public class HospitalController {
 
-    @Autowired
-    private HospitalRepository hospitalRepository;
+    private final HospitalRepository hospitalRepository;
 
 
     @GetMapping("/{id}/find")

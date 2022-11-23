@@ -22,7 +22,7 @@ public class Review {
     @Column(name = "patient_name")
     private String patientName;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY,cascade = CascadeType.ALL)
     @JoinColumn(name = "hospital_id")
     private Hospital hospital;
 }

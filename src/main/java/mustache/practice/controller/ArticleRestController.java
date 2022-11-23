@@ -1,5 +1,6 @@
 package mustache.practice.controller;
 
+import lombok.RequiredArgsConstructor;
 import mustache.practice.domain.dto.ArticleAddRequest;
 import mustache.practice.domain.dto.ArticleResponse;
 import mustache.practice.service.ArticleService;
@@ -8,13 +9,10 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/api/v1/articles")
+@RequiredArgsConstructor
 public class ArticleRestController {
 
-    private ArticleService articleService;
-
-    public ArticleRestController(ArticleService articleService) {
-        this.articleService = articleService;
-    }
+    private  final ArticleService articleService;
 
     @GetMapping("/{id}")
     public ResponseEntity<ArticleResponse> get(@PathVariable(name = "id") Long id) {

@@ -33,27 +33,7 @@
 
             </ul>
 
-        <form class="container" form action="/review" method="post">
-            <div class="mb-3">
-                <label class="form-label">환자 이름</label>
-                <input type="text" name="patientName" class="form-control" placeholder="이름">
-            </div>
 
-            <div class="mb-3">
-                <label class="form-label">리뷰 제목</label>
-                <input type="text" name="title" class="form-control" placeholder="제목">
-            </div>
-
-            <div class="mb-3">
-                <label class="form-label">리뷰 내용</label>
-                <textarea class="form-control" rows="2" name="content" placeholder="내용"></textarea>
-
-            </div>
-            <div class="d-grid gap-2 col-6 mx-auto">
-                <button class="btn btn-primary" type="submit">리뷰 등록</button>
-            </div>
-
-        </form>
 
         <hr>
         <br>
@@ -84,4 +64,29 @@
         {{/hospital}}
     </form>
 </div>
+
+<hr>
+<br>
+
+<form class="container" form action="/review" method="post">
+    <div class="mb-3">
+        <label class="form-label">환자 이름</label>
+        <input type="text" name="patientName" class="form-control" placeholder="이름">
+    </div>
+
+    <div class="mb-3">
+        <label class="form-label">리뷰 제목</label>
+        <input type="text" name="title" class="form-control" placeholder="제목">
+    </div>
+
+    <div class="mb-3">
+        <label class="form-label">리뷰 내용</label>
+        <textarea class="form-control" rows="2" name="content" placeholder="내용"></textarea>
+
+    </div>
+    <div class="d-grid gap-2 col-6 mx-auto">
+        <button class="btn btn-primary" type="submit">리뷰 등록</button>
+    </div>
+
+</form>
 

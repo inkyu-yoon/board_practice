@@ -17,6 +17,6 @@ public class Publisher {
     private String name;
     private String address;
 
-    @OneToMany(mappedBy = "publisher")
-    private List<Book> books;
+    @OneToOne(fetch = FetchType.LAZY)
+    private Book books;
 }
