@@ -16,7 +16,8 @@ public class BookResponseDto {
     private String authorName;
 
 
-    public static BookResponseDto of(Book book, String authorName,String publisherName) {
-        return BookResponseDto.builder().id(book.getId()).name(book.getName()).authorName(authorName).publisherName(publisherName).build();
+    public static BookResponseDto of(Book book) {
+        return BookResponseDto.builder().id(book.getId()).name(book.getName()).authorName(book.getAuthor().getName()).publisherName(book.getPublisher().getName()).build();
     }
+
 }
