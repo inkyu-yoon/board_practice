@@ -2,6 +2,7 @@ package mustache.practice.service;
 
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
+import lombok.RequiredArgsConstructor;
 import mustache.practice.domain.dto.HospitalResponse;
 import mustache.practice.domain.entity.Hospital;
 import mustache.practice.parser.HospitalParser;
