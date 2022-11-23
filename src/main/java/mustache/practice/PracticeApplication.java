@@ -14,9 +14,9 @@ public class PracticeApplication {
 	public static void main(String[] args) throws IOException {
 		SpringApplication.run(PracticeApplication.class, args);
 		//데이터 입력
-
-		HospitalService hospitalService = new HospitalService(hospitalRepository);
-		hospitalService.insertLargeVolumeHospitalData("hospitalData.txt");
+//
+//		HospitalService hospitalService = new HospitalService(hospitalRepository);
+//		hospitalService.insertLargeVolumeHospitalData("hospitalData.txt");
 	}
 
 }
