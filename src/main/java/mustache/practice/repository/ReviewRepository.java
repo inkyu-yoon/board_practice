@@ -10,14 +10,6 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
 @Repository
-@RequiredArgsConstructor
-public class ReviewRepository{
+public interface ReviewRepository extends JpaRepository<Review,Long>{
 
-    @PersistenceContext
-    private final EntityManager em;
-
-    @Transactional
-    public void save(Review review){
-        em.persist(review);
-    }
 }

@@ -2,13 +2,8 @@ package mustache.practice.controller;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import mustache.practice.domain.ArticleDto;
 import mustache.practice.domain.dto.ReviewDto;
-import mustache.practice.domain.entity.Article;
-import mustache.practice.domain.entity.Review;
-import mustache.practice.repository.ArticleRepository;
 import mustache.practice.repository.ReviewRepository;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -17,7 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @RequestMapping("/review")
 @Slf4j
 @RequiredArgsConstructor
-public class ReviewController {
+public class ReviewRestController {
 
     private final ReviewRepository reviewRepository;
 

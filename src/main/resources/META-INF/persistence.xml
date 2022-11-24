@@ -13,8 +13,8 @@
             <property name="javax.persistence.jdbc.user" value="root"/>
 <!--            <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost/inkyu-db2"/>-->
 <!--            <property name="javax.persistence.jdbc.password" value="12341234"/>-->
-            <property name="javax.persistence.jdbc.password" value="1q2w3e4r"/>
-            <property name="javax.persistence.jdbc.url" value="jdbc:mysql://ec2-3-38-111-117.ap-northeast-2.compute.amazonaws.com/inkyu-db"/>
+            <property name="javax.persistence.jdbc.password" value="password"/>
+            <property name="javax.persistence.jdbc.url" value="jdbc:mysql://ec2-3-112-74-175.ap-northeast-1.compute.amazonaws.com/inkyu-db"/>
             <property name="hibernate.dialect" value="org.hibernate.dialect.MySQLDialect"/>
 
             <!-- 옵션 -->

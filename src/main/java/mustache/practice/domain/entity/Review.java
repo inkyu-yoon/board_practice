@@ -1,6 +1,9 @@
 package mustache.practice.domain.entity;
 
 import lombok.*;
+import mustache.practice.domain.dto.ArticleResponse;
+import mustache.practice.domain.dto.ReviewAddRequestDto;
+import mustache.practice.domain.dto.ReviewAddResponseDto;
 
 import javax.persistence.*;
 
@@ -25,4 +28,8 @@ public class Review {
     @ManyToOne(fetch = FetchType.LAZY,cascade = CascadeType.ALL)
     @JoinColumn(name = "hospital_id")
     private Hospital hospital;
+
+    public static ReviewAddRequestDto of(Review review) {
+        return new ReviewAddRequestDto(review.title, review.content, review.patientName, review.getHospital().getId());
+    }
 }
